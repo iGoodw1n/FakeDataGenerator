@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FakeUserDataGenerator</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/FakeUserDataGenerator.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 fixed-top">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">FakeUserDataGenerator</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1 align-items-center">
+                        <li class="nav-item">
+                            <button class="btn btn-danger" id="random">Random</button>
+                        </li>
+                        <li class="nav-item">
+                            <label for="region">Choose a region:</label>
+                            <select name="region" id="region">
+                                <option value="en_US">Usa</option>
+                                <option value="pl">Poland</option>
+                                <option value="ru">Russia</option>
+                            </select>
+                        </li>
+                        <li class="nav-item">
+                            <label for="seed">Enter seed:</label>
+                            <input type="number" name="seed" id="seed" pattern="[0-9]" />
+                        </li>
+                        <li class="nav-item">
+                            <label for="errors">Enter number of errors:</label>
+                            <input type="range" class="form-range" min="0" max="10" step="0.25" id="rangeInput" value="0" />
+                            <input name="errors" type="number" class="form-control" min="0" max="1000" id="numberInput" value="0" />
+                        </li>
+                        <li class="nav-item">
+                            <a id="csv" class="btn btn-primary" download>
+                                Download CSV
+                            </a>
+                            
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - FakeUserDataGenerator - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
