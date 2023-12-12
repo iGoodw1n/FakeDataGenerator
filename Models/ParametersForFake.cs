@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FakeUserDataGenerator.Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FakeUserDataGenerator.Models;
 
@@ -16,5 +17,5 @@ public class ParametersForFake
     [FromQuery(Name = "errors")]
     public float Errors { get; set; }
 
-    public int Amount { get; set; } = 20;
+    public int Amount { get; set; } = Params.Pages;
 }
